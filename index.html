@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oussama Ouakmour — Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* New theme: Blue → Aqua */
+      --bg: #0d1216;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --muted: rgba(200, 220, 255, 0.60);
+      --accent1: #00d4ff;   /* Aqua */
+      --accent2: #5a7dff;   /* Soft Blue */
+    }
+
+    html, body { height: 100%; }
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #0b1216 60%);
+      color: #e9eef7;
+      margin:0;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Container feel */
+    .container { max-width:1100px; }
+
+    /* Navbar */
+    .navbar-brand{
+      font-weight:700;
+      font-size:18px;
+      letter-spacing:0.3px;
+      border: 1px solid rgba(255,255,255,0.03);
+      padding: 8px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.015);
+    }
+    .navbar { padding-top:14px; padding-bottom:14px; }
+
+    @media (max-width:576px){
+      .navbar-brand{ font-size:16px; padding:6px 10px; }
+      .navbar{ padding-top:6px; padding-bottom:6px; }
+    }
+
+    /* HERO */
+    .hero-title {
+      font-size: clamp(40px, 8vw, 84px);
+      line-height: 0.95;
+      font-weight: 800;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -1px;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1.03rem;
+      margin-bottom: 16px;
+    }
+
+    .btn-ghost{
+      border-radius: 28px;
+      padding: 10px 22px;
+      background: linear-gradient(90deg, rgba(0,212,255,0.13), rgba(90,125,255,0.13));
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: 0 0 18px rgba(0,212,255,0.10);
+      color: #ffffff;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .btn-ghost:hover{
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      border-radius: 28px;
+      padding: 10px 18px;
+      font-weight:600;
+    }
+
+    /* Profile image */
+    .profile-card{
+      max-width: 330px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      box-shadow: 0 8px 30px rgba(90,125,255,0.05);
+      margin: 0 auto;
+    }
+    .profile-card img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* SERVICES */
+    .section-title{
+      font-size:28px;
+      font-weight:700;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom:20px;
+    }
+
+    .service-card{
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 212, 255, 0.08);
+      border-radius: 14px;
+      padding: 18px;
+      min-height: 120px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .service-card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    }
+    .service-card h5{ margin-bottom:6px; }
+    .service-card p{ color: var(--muted); margin:0; }
+
+    /* small connector visual (optional) */
+    .flow-line {
+      width:3px;
+      height:100%;
+      background: linear-gradient(180deg, rgba(90,125,255,0.18), rgba(0,212,255,0.12));
+      border-radius:2px;
+      margin: 0 auto;
+      max-width:6px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:60px;
+      opacity:0.7;
+      text-align:center;
+      padding-bottom:40px;
+      color: #cfe9ff;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 992px){
+      .profile-card{ max-width:260px; }
+    }
+
+    @media (max-width: 576px){
+      .hero-title{ font-size: clamp(28px, 10vw, 46px); }
+      .hero-sub{ font-size: 0.98rem; }
+      .profile-card{ max-width:220px; }
+      .service-card{ min-height: auto; }
+    }
+    .skills-section {
+  background: #0f1624;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.section-title {
+  font-size: 32px;
+  background: linear-gradient(90deg, #ff4bc8, #6a8dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.skills-subtitle {
+  color: #bfc5d2;
+  font-size: 18px;
+}
+
+.skill-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 25px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.skill-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255,255,255,0.2);
+}
+.contact-section {
+  background: #0f1624;
+  color: #fff;
+}
+
+.contact-title {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff4bc8, #6a8dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.get-in-touch {
+  font-size: 22px;
+  margin-top: 10px;
+  color: #d1d7e5;
+}
+
+.contact-subtitle {
+  color: #8da2ff;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.contact-text {
+  color: #cfd6e6;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  font-size: 28px;
+  color: #cfd6e6;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  color: #6a8dff;
+  transform: scale(1.15);
+}
+
+.contact-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+}
+
+.contact-input:focus {
+  background: rgba(255,255,255,0.08);
+  border-color: #6a8dff;
+  box-shadow: 0 0 10px rgba(106, 141, 255, 0.4);
+  color: white;
+}
+
+.send-btn {
+  background: linear-gradient(90deg, #6a8dff, #ff4bc8);
+  border: none;
+  padding: 10px 40px;
+  color: white;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.send-btn:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  background: #0b1120;
+  color: #838aa9;
+  font-size: 14px;
+} 
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  transition: 0.3s;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.15));
+  border-radius: 8px;
+}
+
+.social-img:hover {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.35));
+}
+</style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark container">
+    <a class="navbar-brand" href="#">Oussama Ouakmour</a>
+
+    <!-- Hamburger -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Portfolio</a></li>
+        <li class="nav-item">
+          <a class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main class="container py-5">
+    <section class="row align-items-center">
+      <div class="col-lg-7">
+        <h1 class="hero-title">mobile & web DEVELOPER</h1>
+        <p class="hero-sub">
+          I am <strong>Oussama Ouakmour</strong>, a web & mobile developer passionate about creating beautiful,
+          fast and responsive applications using modern technologies.
+        </p>
+        <div class="d-flex gap-3 mt-3">
+          <a class="btn-ghost" href="#contact">HIRE ME</a>
+          <a class="btn btn-outline-light rounded-pill" href="#contact">MY CV</a>
+        </div>
+      </div>
+
+      <div class="col-lg-5 text-center mt-4 mt-lg-0">
+        <div class="profile-card">
+          <!-- replace with your image: assets/profile.jpg -->
+          <img src="mg/af0207b5-42ab-4ca5-9515-bc3fff2c289b-removebg-preview.png" alt="Oussama Ouakmour">
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="pt-5" id="services">
+      <h3 class="section-title">MY SERVICES</h3>
+
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <div class="service-card">
+            <h5>Développement Web</h5>
+            <p>Création de sites modernes, rapides et responsives avec HTML, CSS, JavaScript, Bootstrap,php,mysql, et frameworks modernes.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 d-none d-lg-flex justify-content-center">
+          <div class="flow-line" aria-hidden="true"></div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="service-card">
+            <h5>Développeur Mobile</h5>
+            <p>Développement d'applications mobiles performantes (kotlin / Flutter) avec un design moderne et fluide.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 text-center" style="color:var(--muted);">
+          I work with modern tools and follow best practices to deliver high-quality products.
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section id="skills" class="py-5 skills-section">
+  <div class="container text-center">
+    <h2 class="section-title">SKILLS</h2>
+    <p class="skills-subtitle">The skills, tools and technologies I use:</p>
+
+    <div class="skills-box d-flex flex-wrap justify-content-center gap-4 mt-4">
+
+      <h3 class="skill-item">HTML</h3>
+      <h3 class="skill-item">CSS</h3>
+      <h3 class="skill-item">JavaScript</h3>
+      <h3 class="skill-item">bootstrap</h3>
+      <h3 class="skill-item">kotlin</h3>
+      <h3 class="skill-item">php</h3>
+      <h3 class="skill-item">Android studio</h3>
+      <h3 class="skill-item">Flutter</h3>
+      <h3 class="skill-item">Git</h3>
+      <h3 class="skill-item">WordPress</h3>
+      <h3 class="skill-item">vs code</h3>
+<h3 class="skill-item">python</h3>
+<h3 class="skill-item">java</h3>
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact-section py-5">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Left Side -->
+      <div class="col-md-6 mb-4">
+        <h3 class="contact-title">DO YOU HAVE A PROJECT TO DISCUSS?</h3>
+        <h4 class="get-in-touch">GET IN TOUCH 💬</h4>
+
+        <div class="mt-4">
+          <h5 class="contact-subtitle">CONTACT</h5>
+          <p class="contact-text">oussama.ouakmour@gmail.com</p>
+          <p class="contact-text">+212 6 53 32 78 02</p>
+        </div>
+
+        <div class="mt-4">
+          <h5 class="contact-subtitle">SOCIAL MEDIA</h5>
+
+          <div class="social-icons">
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/ouakmour-oussama-3b3a6a386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app#" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="social-img" alt="LinkedIn">
+  </a>
+
+  <!-- GitHub -->
+  <a href="https://github.com/oussamaouakmour/projet-java" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="social-img" alt="GitHub">
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/kmr_oussama?igsh=MWlheHF5dHh1aDM1dA%3D%3D&utm_source=qr#" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="social-img" alt="Instagram">
+  </a>
+
+ 
+  </a>
+
+</div>
+        </div>
+      </div>
+
+      <!-- Right Side Form -->
+      <div class="col-md-6">
+        <h4 class="contact-subtitle">CONTACT FORM</h4>
+
+        <form action="index.php" method="POST">
+         Name : <input type="text" placeholder="Name" class="form-control contact-input mb-3">
+         Email: <input type="email" placeholder="Email" class="form-control contact-input mb-3">
+          <textarea placeholder="Message" class="form-control contact-input mb-3" rows="5"></textarea>
+
+          <button class="btn send-btn">SEND</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer text-center py-3">
+  © 2024 —  — Created by Oussama Ouakmour
+</footer>  
+</main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
